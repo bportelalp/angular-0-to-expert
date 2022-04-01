@@ -1,0 +1,6 @@
+Crear componente:
+	ng generate component <nombre> --skipTests
+	
+Crear módulo:
+	ng generate module <nombre>
+	
