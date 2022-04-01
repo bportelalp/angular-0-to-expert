@@ -1,22 +1,34 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GifsService {
 
+  private _apikey: string = 'UibFSCM6pyL5rp4bG8ukbO7dZyn2oL0w'
   private _historial: string[] = [];
 
   get historial() {
     return [...this._historial]
   }
 
+  constructor(private http: HttpClient) {}
+
   buscarGifs(query: string) {
     query = query.trim().toLowerCase();
     if (!this._historial.includes(query)) {
       this._historial.unshift(query);
+      this._historial = this._historial.splice(0, 10);
     }
-    this._historial = this._historial.splice(0, 10);
-    console.log(this._historial)
+
+    // Esto devuelve un observable, es equivalente a un predicate en C#
+    this.http.get('https://api.giphy.com/v1/gifs/search?api_key=UibFSCM6pyL5rp4bG8ukbO7dZyn2oL0w&q=cat&limit=10')
+      .subscribe((resp: any) => {
+        console.log(resp.data)
+      });
+
+    
+    
   }
 }
