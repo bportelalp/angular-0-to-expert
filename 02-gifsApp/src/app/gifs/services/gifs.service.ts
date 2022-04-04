@@ -17,13 +17,23 @@ export class GifsService {
     return [...this._historial]
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    //Forma corta: ! indica que ts confie en mi
+    this._historial = JSON.parse(localStorage.getItem('historial')!) || [];
+
+    //Forma larga
+    // if(localStorage.getItem('historial')){
+    //   this._historial = JSON.parse(localStorage.getItem('historial')!); //! indica que ts confie en mi
+    // }
+  }
 
   buscarGifs(query: string) {
     query = query.trim().toLowerCase();
     if (!this._historial.includes(query)) {
       this._historial.unshift(query);
       this._historial = this._historial.splice(0, 10);
+
+      localStorage.setItem('historial',JSON.stringify(this._historial));
     }
 
     // Esto devuelve un observable, es equivalente a un predicate en C#
