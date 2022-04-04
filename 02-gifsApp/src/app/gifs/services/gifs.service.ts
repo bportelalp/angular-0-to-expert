@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { SearchGifsResponse, Gif } from '../interfaces/gifs.interface';
 
 @Injectable({
@@ -7,7 +7,8 @@ import { SearchGifsResponse, Gif } from '../interfaces/gifs.interface';
 })
 export class GifsService {
 
-  private _apikey: string = 'UibFSCM6pyL5rp4bG8ukbO7dZyn2oL0w'
+  private _apikey: string = 'UibFSCM6pyL5rp4bG8ukbO7dZyn2oL0w';
+  private _gifsUrl: string = 'https://api.giphy.com/v1/gifs';
   private _historial: string[] = [];
 
   //TODO: Cambiar any por su tipo
@@ -33,11 +34,15 @@ export class GifsService {
       this._historial.unshift(query);
       this._historial = this._historial.splice(0, 10);
 
-      localStorage.setItem('historial',JSON.stringify(this._historial));
+      localStorage.setItem('historial', JSON.stringify(this._historial));
     }
 
+    const params = new HttpParams()
+      .set('api_key', this._apikey)
+      .set('limit', '10')
+      .set('q', query)
     // Esto devuelve un observable, es equivalente a un predicate en C#
-    this.http.get<SearchGifsResponse>(`https://api.giphy.com/v1/gifs/search?api_key=UibFSCM6pyL5rp4bG8ukbO7dZyn2oL0w&q=${query}&limit=10`)
+    this.http.get<SearchGifsResponse>(`${this._gifsUrl}/search?`, {params})
       .subscribe((resp: SearchGifsResponse) => {
         console.log(resp.data)
         this.resultados = resp.data;
