@@ -9,6 +9,9 @@ export class GifsService {
   private _apikey: string = 'UibFSCM6pyL5rp4bG8ukbO7dZyn2oL0w'
   private _historial: string[] = [];
 
+  //TODO: Cambiar any por su tipo
+  public resultados: any[] = [];
+
   get historial() {
     return [...this._historial]
   }
@@ -23,9 +26,10 @@ export class GifsService {
     }
 
     // Esto devuelve un observable, es equivalente a un predicate en C#
-    this.http.get('https://api.giphy.com/v1/gifs/search?api_key=UibFSCM6pyL5rp4bG8ukbO7dZyn2oL0w&q=cat&limit=10')
+    this.http.get(`https://api.giphy.com/v1/gifs/search?api_key=UibFSCM6pyL5rp4bG8ukbO7dZyn2oL0w&q=${query}&limit=10`)
       .subscribe((resp: any) => {
         console.log(resp.data)
+        this.resultados = resp.data;
       });
 
     
