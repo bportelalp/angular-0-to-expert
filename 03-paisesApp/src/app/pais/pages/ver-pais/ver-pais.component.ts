@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PaisService } from '../../services/pais.service';
-import { switchMap } from "rxjs/operators";
+import { switchMap, tap } from "rxjs/operators";
+import { Country } from '../../interfaces/pais.interface';
 
 @Component({
   selector: 'app-ver-pais',
@@ -11,18 +12,21 @@ import { switchMap } from "rxjs/operators";
 })
 export class VerPaisComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute,
-              private paisService: PaisService) { }
+  pais!: Country;
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private paisService: PaisService) { }
 
   ngOnInit(): void {
 
     // Otra opcion usando RxJs
     this.activatedRoute.params
       .pipe(
-        switchMap( (param) => this.paisService.getPaisPorCode(param['id']))
+        switchMap((param) => this.paisService.getPaisPorCode(param['id'])), tap(console.log)
       )
-      .subscribe(resp => {
-        console.log(resp);
+      .subscribe(pais => {
+        this.pais = pais[0];
       })
     //Suscribirse a cambio de url para notificar
     // this.activatedRoute.params
