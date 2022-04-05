@@ -26,7 +26,7 @@ export class VerPaisComponent implements OnInit {
         switchMap((param) => this.paisService.getPaisPorCode(param['id'])), tap(console.log)
       )
       .subscribe(pais => {
-        this.pais = pais[0];
+        this.pais = pais;
       })
     //Suscribirse a cambio de url para notificar
     // this.activatedRoute.params
