@@ -1,3 +1,6 @@
+Crear Proyecto
+	ng new <nombre>
+
 Crear componente:
 	ng generate component rutarelativa/<nombre> --skip-tests -is
 			--skip-tests suprime archivos de tests

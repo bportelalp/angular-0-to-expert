@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +15,9 @@ export class PaisService {
     
     const url = `${this.apiUrl}/name/${termino}`
     return this.http.get(url);
+    //Con operadores RxJs, esto devuelve si hay error un observable de arreglo vacío. of genera observable
+      // .pipe(
+      //     catchError(err => of([]))
+      // );
   }
 }
