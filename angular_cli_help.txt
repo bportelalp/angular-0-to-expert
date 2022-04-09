@@ -11,4 +11,8 @@ Crear módulo:
 	
 Crear servicio:
 	ng generate service rutarelativa/<nombre> --skip-tests
+	
+Instalar paquetes
+	npm install <nombrepaquete>
+	
 

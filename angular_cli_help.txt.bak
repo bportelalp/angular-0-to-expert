@@ -1,6 +1,14 @@
+Crear Proyecto
+	ng new <nombre>
+
 Crear componente:
-	ng generate component <nombre> --skipTests
+	ng generate component rutarelativa/<nombre> --skip-tests -is
+			--skip-tests suprime archivos de tests
+			-is suprime csss
 	
 Crear módulo:
-	ng generate module <nombre>
+	ng generate module rutarelativa/<nombre>
 	
+Crear servicio:
+	ng generate service rutarelativa/<nombre> --skip-tests
+
