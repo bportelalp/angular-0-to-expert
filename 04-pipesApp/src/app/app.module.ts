@@ -8,8 +8,10 @@ import { VentasModule } from './ventas/ventas.module';
 
 // Cambiar localizacionde la app
 import localES from "@angular/common/locales/es";
+import localFR from "@angular/common/locales/fr";
 import { registerLocaleData } from '@angular/common'
 registerLocaleData(localES);
+registerLocaleData(localFR);
 
 @NgModule({
   declarations: [

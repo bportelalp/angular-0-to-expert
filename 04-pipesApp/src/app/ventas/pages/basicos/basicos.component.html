@@ -47,6 +47,13 @@
                 <li>fecha | date:'MM-dd-YYYY'</li>
                 <li>fecha | date:'MMMM dd, YYYY'</li>
             </ul>
+            <hr>
+            <ul>
+                <li>fecha | date:'long':'GMT-6'</li>
+                <li>fecha | date:'long':'GMT+4'</li>
+                <li>fecha | date:'long':'GMT-2':'en'</li>
+                <li>fecha | date:'long':'':'fr'</li>
+            </ul>
         </p-card>
     </div>
     <div class="col-6">
@@ -58,6 +65,14 @@
                 <li>{{fecha | date:'long'}}</li>
                 <li>{{fecha | date:'MM-dd-YYYY'}}</li>
                 <li>{{fecha | date:'MMMM dd, YYYY'}}</li>
+            </ul>
+            <hr>
+            <ul>
+                <li>{{fecha | date:'long':'GMT-6'}}</li>
+                <li>{{fecha | date:'long':'GMT+4'}}</li>
+                <li>{{fecha | date:'long':'GMT-2':'en'}}</li> <!--En ingles no hay que importarlo porque ya viene de Angular-->
+                <li>{{fecha | date:'long':'':'fr'}}</li> <!--Importarlo en app.module.ts-->
+
             </ul>
         </p-card>
     </div>
