@@ -6,14 +6,59 @@
 </div>
 
 <div class="grid">
+    <div class="col-4">
+        <p-card header="Uppercase"
+                [subheader]="nombreLower">
+            Con pipe se corrige a:
+            {{nombreLower | uppercase}}
+        </p-card>
+    </div>
+    <div class="col-4">
+        <p-card header="Lowercase"
+                [subheader]="nombreUpper">
+                Con pipe se corrige a:
+            {{nombreUpper | lowercase}}
+        </p-card>
+    </div>
+    <div class="col-4">
+        <p-card header="Titlecase"
+                [subheader]="nombreCompleto">
+                Con pipe se corrige a:
+            {{nombreCompleto | titlecase}}
+        </p-card>
+    </div>
+</div>
 
-    <div class="col-4">
-        <p-card header="uppercase"></p-card>
+<div class="text-layout">
+    <h1>Date | Fecha | Pipe</h1>
+    <p>
+        Pipes para manejar formato de fecha
+    </p>
+</div>
+
+<div class="grid">
+    <div class="col-6">
+        <p-card>
+            <ul>
+                <li>fecha</li>
+                <li>fecha | date</li>
+                <li>fecha | date:'short'</li>
+                <li>fecha | date:'long'</li>
+                <li>fecha | date:'MM-dd-YYYY'</li>
+                <li>fecha | date:'MMMM dd, YYYY'</li>
+            </ul>
+        </p-card>
     </div>
-    <div class="col-4">
-        2
-    </div>
-    <div class="col-4">
-        3
+    <div class="col-6">
+        <p-card>
+            <ul>
+                <li>{{fecha}}</li>
+                <li>{{fecha | date}}</li>
+                <li>{{fecha | date:'short'}}</li>
+                <li>{{fecha | date:'long'}}</li>
+                <li>{{fecha | date:'MM-dd-YYYY'}}</li>
+                <li>{{fecha | date:'MMMM dd, YYYY'}}</li>
+            </ul>
+        </p-card>
     </div>
 </div>
