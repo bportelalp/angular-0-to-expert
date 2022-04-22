@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-no-comunes',
@@ -47,5 +48,16 @@ export class NoComunesComponent {
     localidad: 'Vigo, Galiza'
   }
 
+  //async pipe
+  /**
+   * El pipe async va a suscribirse al observable e imprimir todas sus emisiones
+   */
+  miObservable = interval(1000); // 0,1,2... va a emitirlos
+
+  valorPromesa = new Promise((resolve,reject) => {
+    setTimeout(()=> {
+      resolve('Fin de la promesa')
+    }, 3500);
+  })
 
 }
