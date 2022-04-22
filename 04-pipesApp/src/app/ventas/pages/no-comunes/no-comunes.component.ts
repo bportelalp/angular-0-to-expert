@@ -40,5 +40,12 @@ export class NoComunesComponent {
   }
 
 
+  //KeyValuePipe
+  persona = {
+    nombre: 'Bruno',
+    edad: 24,
+    localidad: 'Vigo, Galiza'
+  }
+
 
 }

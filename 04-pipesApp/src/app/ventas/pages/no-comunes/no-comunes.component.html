@@ -38,4 +38,17 @@
             <pre>{{nombre | slice:1:4}}</pre>
         </p-fieldset>
     </div>
+    <div class="col-md-6 col-sm-12">
+        <p-fieldset legend="KeyValue pipe" [toggleable]="true">
+            <b>JSON literal</b>
+            <pre>{{persona | json}}</pre>
+            <b>Con ngFor</b>
+            <ul>
+                <li *ngFor="let field of persona | keyvalue">
+                     {{field.key}}: {{field.value}}
+                </li>
+            </ul>
+        </p-fieldset>
+
+    </div>
 </div>
