@@ -17,13 +17,27 @@ export class NoComunesComponent {
   }
 
   //i18nPlural
-  clientes: string[] = ['Maria','Bruno']
+  clientes: string[] = ['David','Bruno','Celeiro','Xulia','Juan']
   clientesMapa = {
     '=0': 'no tenemos ningún cliente esperando.',
     '=1': 'tenemos un cliente esperando',
     'other': 'tenemos # clientes esperando'
   }
 
+  cambiarCliente(){
+    if(this.genero == 'femenino'){
+      this.genero = 'masculino';
+      this.nombre = 'Bruno'
+    }
+    else {
+      this.genero = 'femenino';
+      this.nombre = 'Lucía'
+    }
+  }
+
+  borrarCliente() {
+    this.clientes.pop();
+  }
 
 
 
