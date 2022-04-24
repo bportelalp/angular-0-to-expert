@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class OrdenarComponent implements OnInit {
 
   enMayusculas : boolean = true;
+  products: any[] = []
 
   constructor() { }
 
