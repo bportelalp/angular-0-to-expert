@@ -104,5 +104,7 @@
       }
     }
   },
-  "defaultProject": "05-heroesApp"
+  "cli": {
+    "analytics": false
+  }
 }
