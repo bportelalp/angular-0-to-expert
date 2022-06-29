@@ -2,9 +2,9 @@
 <mat-divider></mat-divider>
 <br>
 
-<div fxLayout="row wrap">
-    <div fxFlex="50">
-        <mat-card *ngFor="let heroe of heroes">
+<div fxLayout="row wrap" fxLayout.xs="col wrap" fxLayoutAlign="center" fxLayoutGap="20px">
+    <div f fxFlex.sm="100" fxFlex.lg="20" *ngFor="let heroe of heroes">
+        <mat-card>
             <mat-card-header>
                 <mat-card-title>
                     {{heroe.superhero}}
